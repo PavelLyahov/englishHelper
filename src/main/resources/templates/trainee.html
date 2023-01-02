@@ -1,0 +1,16 @@
+<!document html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>English Helper Trainee</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Traineeee</h1>
+    <h1>Welcome <span th:style="'color:' + ${color}"
+                      th:text="${username}"></span>!</h1>
+</body>
+
+</html>
