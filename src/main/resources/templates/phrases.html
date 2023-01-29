@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Prases</h1>
+<h2>View phrases</h2>
+
+<table>
+    <tr>
+        <th>TARGET PHRASE</th>
+        <th>NATIVE PHRASE</th>
+    </tr>
+    <tr th:each="p: ${phrases}" >
+        <td th:text="${p.targetPhrase}"></td>
+        <td th:text="${p.nativePhrase}"></td>
+    </tr>
+</table>
+
+<h2>Add a phrase</h2>
+<form action="/phrases" method="POST">
+    Target phrase: <input type="text" name="targetPhrase"><br />
+    Native phrase: <input type="text" name="nativePhrase"><br />
+    <button type="submit">Add phrase</button>
+</form>
+
+</body>
+</html>
