@@ -1,15 +1,11 @@
 package com.pavel.englishhelper.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+import lombok.Data;
+
+@Data
 public class Phrase {
+    private int id;
     private String targetPhrase;
     private String nativePhrase;
 
