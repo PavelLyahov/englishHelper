@@ -26,7 +26,7 @@ public class PhraseRepository {
 
     RowMapper<Phrase> phraseRowMapper = (r, i) -> {
       Phrase rowObject = new Phrase();
-      rowObject.setId(r.getInt("id"));
+      rowObject.setId(r.getLong("id"));
       rowObject.setTargetPhrase(r.getString("targetPhrase"));
       rowObject.setNativePhrase(r.getString("nativePhrase"));
       return rowObject;
