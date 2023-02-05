@@ -2,32 +2,29 @@ package com.pavel.englishhelper.controllers;
 
 import com.pavel.englishhelper.models.Phrase;
 import com.pavel.englishhelper.repositories.PhraseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
 
 @Controller
-@RequestMapping("/phrases")
 public class PhraseController {
 
-    private final PhraseRepository phraseRepository;
+    @Autowired
+    private PhraseRepository phraseRepository;
 
-    public PhraseController(PhraseRepository phraseRepository) {
-        this.phraseRepository = phraseRepository;
+    @GetMapping("/phrases")
+    public String showPhrasesPage(Model model) {
+        return "/phrases";
     }
 
-    @PostMapping
-    public void storePhrase(@RequestBody Phrase phrase) {
-        phraseRepository.storePhrase(phrase);
-    }
-
-    @GetMapping
-    public List<Phrase> findPhrases() {
-        return phraseRepository.findAllPhrases();
+    @PostMapping("/phrases")
+    public void addPhrase(@RequestParam String targetPhrase, @RequestParam String nativePhrase) {
+        Phrase phrase = new Phrase(targetPhrase, nativePhrase);
+        phraseRepository.save(phrase);
     }
 
 }
