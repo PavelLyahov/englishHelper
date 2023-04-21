@@ -15,14 +15,14 @@
             <th>TARGET PHRASE</th>
             <th>NATIVE PHRASE</th>
         </tr>
-        <tr th:each="p: ${phrases}" >
+        <tr th:each="p: ${phrase}" >
             <td th:text="${p.targetPhrase}"></td>
             <td th:text="${p.nativePhrase}"></td>
         </tr>
     </table>
 
     <h2>Add a phrase</h2>
-    <form action="/phrases" method="POST">
+    <form action="/phrases" method="POST" th:object="${phrase}">
         Target phrase: <input type="text" name="targetPhrase" class="form-control" placeholder="input learning phrase"><br>
         Native phrase: <input type="text" name="nativePhrase" class="form-control" placeholder="input native phrase"><br>
         <button type="submit" class="btn btn-success">Add phrase</button>

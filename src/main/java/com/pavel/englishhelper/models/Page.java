@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class PhraseFile {
+public class Page {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
